@@ -1,0 +1,26 @@
+name: Build JavaDocs
+
+# Controls when the workflow will run
+on:
+  schedule:
+    - cron: 0 0 * * * # every day
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run generate-javadocs script
+        run: |
+          chmod +x ./generate-javadocs.sh
+          ./generate-javadocs.sh
+        shell: bash
+
+      - name: Upload to Azure Blob Storage
+        uses: bacongobbler/azure-blob-storage-upload@v3.0.0
+        with:
+          source_dir: 'output'
+          container_name: '$web'
+          connection_string: ${{ secrets.ConnectionString }}
+          sync: 'true'
