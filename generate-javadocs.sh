@@ -45,7 +45,7 @@ declare -a projects=(
     # "communication/azure-communication-phonenumbers"
     # "communication/azure-communication-rooms"
     # "communication/azure-communication-sms"
-    # "confidentialledger/azure-security-confidentialledger"
+    "confidentialledger/azure-security-confidentialledger"
     "containerregistry/azure-containers-containerregistry"
     # "cosmos/azure-cosmos-encryption"
     # "cosmos/azure-cosmos"
@@ -113,8 +113,8 @@ declare -a projects=(
     "webpubsub/azure-messaging-webpubsub"
 )
 
-# git clone --depth 1 --branch main https://github.com/Azure/azure-sdk-for-java.git
-git clone --depth 1 --branch javadoc-inherit https://github.com/srnagar/azure-sdk-for-java.git
+git clone --depth 1 --branch main https://github.com/Azure/azure-sdk-for-java.git
+
 
 # install build tools
 mvn -q -f azure-sdk-for-java/eng/code-quality-reports/pom.xml install
@@ -161,4 +161,5 @@ cat >> output/index.html << EOF
 </html>
 EOF
 
+# optional - delete the cloned repo
 #rm -rf ./azure-sdk-for-java
