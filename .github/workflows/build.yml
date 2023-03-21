@@ -15,7 +15,6 @@ jobs:
         with:
           distribution: 'microsoft'
           java-version: '17'
-          cache: 'maven'
       - name: Output Java version
         run: java -version
       - name: Run generate-javadocs script
