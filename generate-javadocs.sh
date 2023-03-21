@@ -17,7 +17,8 @@ declare -a dependencies=(
 declare -a projects=(
     
     "identity/azure-identity"
-    
+    "search/azure-search-documents"
+    "tables/azure-data-tables"
 )
 
 git clone --depth 1 --branch main https://github.com/Azure/azure-sdk-for-java.git
